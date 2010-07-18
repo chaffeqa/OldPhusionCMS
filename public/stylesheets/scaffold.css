@@ -1,0 +1,48 @@
+.clearfloat { display: block; }
+.clearfloat:after {clear: both; content: '.'; display: block;  height: 0px; visibility: hidden;}
+* {margin: 0px; outline: none; padding: 0px;}
+
+/* Basic Containers */
+body { background-color: #6666ff; color: #1D1D1D; min-height: 101%; font: 12px sans-serif; }
+#page { margin: 0px auto; padding-top: 8px; width: 945px; }
+#wrapper { background: white; border: 1px solid #000000; padding: 0px 25px 60px; }
+#header { padding: 22px 0px; }
+#content { padding: 10px; }
+
+/* Standard Elements */
+pre { background-color: #eee; padding: 10px; font-size: 11px; }
+a { color: #000; }
+a:hover { background-color: lightgrey; }
+h1 {display: inline;}
+#header-controller {font-size: 16px;}
+#header-action {font-size: 13px;}
+p, h2, h3, h4 {margin-bottom: 10px;}
+h4 {font-size: 9px;}
+p {padding-left: 5px;}
+
+
+/* Forms */
+div.field, div.actions { margin-bottom: 10px; }
+
+/* Menus */
+div#nav-menu { margin-bottom: 15px; position: relative;}
+ul.menu { list-style-type: none; z-index: 20;}
+ul.menu li { float: left; list-style: none; display:block; }
+ul.menu li a { display: block; padding: 3px 10px 3px 23px; margin:0; text-decoration: none; border-right: 1px dotted grey; border-bottom: 1px solid grey;  } /* height:15px; */
+ul.menu li a:hover { background-color: lightgrey; }
+ul.submenu { visibility: hidden; position: absolute;  z-index: 20; }
+ul.submenu li { float: none; display:block; border: 1px solid grey; }
+ul.submenu li a { border: none; padding: 3px 7px; }
+ul.sub-submenu { visibility: hidden; position: relative; max-height: 0px; }
+ul.sub-submenu li { float: none; margin-left: 20px; list-style: none; display:block; border: 1px solid grey; }
+ul.sub-submenu li a { border: none; padding: 3px 7px; }
+
+
+/* Errors And Notices */
+#notice { padding: 4px; width: 200px; border: darkgreen solid 2px; background-color: lightgreen; }
+#important-notice { padding: 4px; color: red; background-color: #888888; border: darkred solid 3px; width: 200px; }
+.field_with_errors { padding: 2px; background-color: red; display: table; }
+#error_explanation { width: 300px; border: 2px solid red; padding: 7px; padding-bottom: 0; margin-bottom: 20px; background-color: #f0f0f0; }
+#error_explanation h2 { text-align: left; font-weight: bold; padding: 5px 5px 5px 15px; font-size: 12px; margin: -7px;
+                        margin-bottom: 0px; background-color: #c00; color: #fff; }
+#error_explanation ul li { font-size: 12px; list-style: square; }
