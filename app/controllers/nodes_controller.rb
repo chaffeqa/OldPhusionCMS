@@ -1,5 +1,5 @@
 class NodesController < ApplicationController
-  before_filter :get_home_node, :except => [:new, :create]
+  before_filter :home_node?, :except => [:new, :create]
   # GET /nodes
   # GET /nodes.xml
   def index
@@ -51,12 +51,16 @@ class NodesController < ApplicationController
   # POST /nodes.xml
   def create
     @node = Node.new(params[:node])
+    @template = @node.build_template(params[:template])
 
     respond_to do |format|
       if @node.save
         format.html { redirect_to(@node, :notice => 'Node was successfully created.') }
         format.xml  { render :xml => @node, :status => :created, :location => @node }
       else
+        if home_node?
+          @home = true
+        end
         format.html { render :action => "new" }
         format.xml  { render :xml => @node.errors, :status => :unprocessable_entity }
       end
