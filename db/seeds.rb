@@ -12,3 +12,4 @@ templates = Template.create([
   {:template_name => 'DarkPath/Inside-Left'},
   {:template_name => 'DarkPath/Admin'}
   ])
+
