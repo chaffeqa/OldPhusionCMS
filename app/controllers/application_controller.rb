@@ -10,12 +10,14 @@ class ApplicationController < ActionController::Base
       if @home_node.nil?
         flash[:important_notice] = 'Home Page not detected, please create one.'
         redirect_to(new_node_path(:home => "true"))
+        return false
       end
     end
     @home_node
   rescue ActiveRecord::RecordNotFound
     flash[:important_notice] = 'Home Page not detected, please create one.'
     redirect_to(new_node_path(:home => "true"))
+    return false
   end
   
 end
