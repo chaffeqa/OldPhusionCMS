@@ -12,7 +12,7 @@
         <div id="header" class="clearfloat"><%= render 'layouts/header' %></div>
         <div id="nav-menu" class="clearfloat">
           <ul class="menu">
-            <% unless home_node? %>
+            <% if home_node? %>
               <li><%= link_to get_home_node.menu_name, node_path(get_home_node) %></li>
               <%= render 'layouts/menu', :locals => {:node => get_home_node} %>
             <% end %>
