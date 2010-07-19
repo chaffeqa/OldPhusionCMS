@@ -1,6 +1,6 @@
 PhusionCMS::Application.routes.draw do |map|
   resources :nodes
-  root :to => '/home'
+  root :to => 'nodes#index'
 
   match ':shortcut' => 'nodes#show', :as => :shortcut
 
