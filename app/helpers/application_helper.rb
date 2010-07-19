@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def editable_region
-
+    
   end
 
   def include_file
@@ -34,7 +34,7 @@ module ApplicationHelper
 
 
   def global_menu
-
+    
   end
 
 

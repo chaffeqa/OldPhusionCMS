@@ -1,5 +1,5 @@
 class NodesController < ApplicationController
-  before_filter :home_node?, :except => [:new, :create]
+  before_filter :home_node?, :except => [:index, :new, :create]
   # GET /nodes
   # GET /nodes.xml
   def index

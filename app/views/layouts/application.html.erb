@@ -21,7 +21,11 @@
         <div id="content">
           <% if flash[:notice] %> <p id="notice"><%= notice %></p> <% end %>
           <% if flash[:important_notice] %> <p id="important-notice"><%= flash[:important_notice] %></p><% end %>
-          <%= yield %>
+          <% if home_node? %>
+            <%= yield %>
+          <% else %>
+            <%= render 'layouts/require_home_error' %>
+          <% end %>
         </div>
       </div>
     </div>

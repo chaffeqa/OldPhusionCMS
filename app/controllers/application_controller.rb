@@ -14,12 +14,10 @@ class ApplicationController < ActionController::Base
     unless @home_node
       @home_node = Node.where(:menu_name => 'Home').first
       if @home_node.nil?
-        raise ActiveRecord::RecordNotFound, "Home Page not detected!"
+        return false
       end
     end
   rescue ActiveRecord::RecordNotFound
-    flash[:important_notice] = "Home Page not detected, please create one. #{button_to 'Create Home', new_node_path(:home => "true")}"
-    redirect_to()
     return false
   end
   
