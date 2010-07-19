@@ -11,9 +11,13 @@ class ApplicationController < ActionController::Base
   end
 
   def home_node?
+    if @checked
+      return false
+    end
     unless @home_node
       @home_node = Node.where(:menu_name => 'Home').first
       if @home_node.nil?
+        @checked = true
         return false
       end
     end
