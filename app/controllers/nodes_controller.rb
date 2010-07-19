@@ -28,11 +28,9 @@ class NodesController < ApplicationController
   def new
     if params[:home] == "true"
       @node = Node.new(:menu_name => 'Home', :title => 'Home', :shortcut => 'home', :displayed => true)
-      @home = true
     else
       get_home_node
       @node = Node.new(:displayed => true)
-      @home = false
     end
     @template = @node.build_template
     respond_to do |format|
@@ -58,9 +56,6 @@ class NodesController < ApplicationController
         format.html { redirect_to(@node, :notice => 'Node was successfully created.') }
         format.xml  { render :xml => @node, :status => :created, :location => @node }
       else
-        if home_node?
-          @home = true
-        end
         format.html { render :action => "new" }
         format.xml  { render :xml => @node.errors, :status => :unprocessable_entity }
       end

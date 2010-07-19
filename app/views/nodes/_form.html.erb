@@ -16,7 +16,7 @@
     <%= f.text_field :title %>
   </div>
 
-  <% unless @home %>
+  <% if home_node? %>
     <div class="field">
       <%= f.label :menu_name %><br />
       <%= f.text_field :menu_name %>
