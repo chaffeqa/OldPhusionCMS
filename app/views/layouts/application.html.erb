@@ -12,20 +12,14 @@
         <div id="header" class="clearfloat"><%= render 'layouts/header' %></div>
         <div id="nav-menu" class="clearfloat">
           <ul class="menu">
-            <% if home_node? %>
               <li><%= link_to get_home_node.menu_name, node_path(get_home_node) %></li>
               <%= render 'layouts/menu', :locals => {:node => get_home_node} %>
-            <% end %>
           </ul>
         </div>
         <div id="content">
           <% if flash[:notice] %> <p id="notice"><%= notice %></p> <% end %>
           <% if flash[:important_notice] %> <p id="important-notice"><%= flash[:important_notice] %></p><% end %>
-          <% if home_node? %>
             <%= yield %>
-          <% else %>
-            <%= render 'layouts/require_home_error' %>
-          <% end %>
         </div>
       </div>
     </div>

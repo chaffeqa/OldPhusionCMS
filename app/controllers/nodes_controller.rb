@@ -1,5 +1,5 @@
 class NodesController < ApplicationController
-  before_filter :home_node?, :except => [:index, :new, :create]
+  before_filter :get_home_node
   # GET /nodes
   # GET /nodes.xml
   def index
@@ -26,12 +26,8 @@ class NodesController < ApplicationController
   # GET /nodes/new
   # GET /nodes/new.xml
   def new
-    if params[:home] == "true"
-      @node = Node.new(:menu_name => 'Home', :title => 'Home', :shortcut => 'home', :displayed => true)
-    else
-      get_home_node
-      @node = Node.new(:displayed => true)
-    end
+    @disabled = ''
+    @node = Node.new(:displayed => true)
     @template = @node.build_template
     respond_to do |format|
       format.html # new.html.erb
@@ -41,8 +37,10 @@ class NodesController < ApplicationController
 
   # GET /nodes/1/edit
   def edit
+    @disabled = ''
     @node = Node.find(params[:id])
     @template = @node.template
+    @disabled = 'disabled' if @home_node.id == params[:id]
   end
 
   # POST /nodes

@@ -4,25 +4,22 @@ class ApplicationController < ActionController::Base
   helper_method :get_home_node, :home_node?
 
   def get_home_node
-    if home_node?
-      return @home_node
-    end
-    return nil
-  end
-
-  def home_node?
-    if @checked
-      return false
-    end
     unless @home_node
       @home_node = Node.where(:menu_name => 'Home').first
       if @home_node.nil?
-        @checked = true
-        return false
+        create_home_node
       end
     end
+    @home_node
   rescue ActiveRecord::RecordNotFound
-    return false
+    create_home_node
+    return @home_node
+  end
+
+  private
+
+  def create_home_node
+    @home_node = Node.create!(:menu_name => 'Home', :title => 'Home', :shortcut => 'home', :displayed => true)
   end
   
 end
