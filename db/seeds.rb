@@ -6,10 +6,4 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
-templates = Template.create([
-  {:template_name => 'DarkPath/Home'},
-  {:template_name => 'DarkPath/Inside'},
-  {:template_name => 'DarkPath/Inside-Left'},
-  {:template_name => 'DarkPath/Admin'}
-  ])
 

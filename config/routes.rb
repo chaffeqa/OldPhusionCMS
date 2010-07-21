@@ -1,8 +1,10 @@
 PhusionCMS::Application.routes.draw do |map|
+
   resources :nodes
   root :to => 'nodes#index'
 
-  match ':shortcut' => 'nodes#show', :as => :shortcut
+  match ':shortcut' => 'templates#show', :as => :shortcut
+  match 'admin_:shortcut' => 'templates#edit', :as => :admin_shortcut
 
 
   

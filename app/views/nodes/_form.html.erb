@@ -1,5 +1,5 @@
 <%= form_for(@node) do |f| %>
-  <% if @node.errors.any? %>
+  <% if @node.errors.any?  %>
     <div id="error_explanation">
       <h2><%= pluralize(@node.errors.count, "error") %> prohibited this node from being saved:</h2>
 
@@ -7,30 +7,31 @@
         <% @node.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
+
       </ul>
     </div>
   <% end %>
 
   <div class="field">
     <%= f.label :title %><br />
-    <%= f.text_field :title, :disabled => @disabled %>
+    <%= f.text_field :title %>
   </div>
 
   <div class="field">
     <%= f.label :menu_name %><br />
-    <%= f.text_field :menu_name, :disabled => @disabled %>
+    <%= f.text_field :menu_name %>
   </div>
   <div class="field">
     <%= f.label :shortcut %><br />
-    http://localhost/<%= f.text_field :shortcut, :disabled => @disabled %>
+    http://localhost/<%= f.text_field :shortcut %>
   </div>
   <div class="field">
-    <%= f.check_box :displayed, :checked => true, :disabled => @disabled %>
+    <%= f.check_box :displayed, :checked => true %>
     <%= f.label :displayed, "Display Page?" %>
   </div>
   <div class="field">
     <%= f.label :node_id, "Where Should This Page Go?" %><br/>
-    <%= f.select :node_id, options_for_select([[@home_node.menu_name,@home_node.id]] + options_tree_recursive(@home_node, ""), "Home"), :disabled => @disabled %>
+    <%= f.select :node_id, options_for_select([[@home_node.menu_name,@home_node.id]] + options_tree_recursive(@home_node, ""), "Home") %>
   </div>
 
   <% if @disabled == 'disabled' %>
@@ -40,7 +41,9 @@
     <%= f.hidden_field :shortcut %>
   <% end %>
 
-
+  <%= f.fields_for :template do |tf| %>
+    <%= tf.select :template_name, ['Right Inside','Home'] %>
+  <% end %>
 
   <div class="actions">
     <%= f.submit %>

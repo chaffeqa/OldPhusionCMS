@@ -9,7 +9,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100717144040) do
+ActiveRecord::Schema.define(:version => 20100721142144) do
+
+  create_table "elements", :force => true do |t|
+    t.integer  "view_id"
+    t.integer  "position"
+    t.integer  "elem_id"
+    t.string   "elem_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "nodes", :force => true do |t|
     t.string   "title"
@@ -23,9 +32,14 @@ ActiveRecord::Schema.define(:version => 20100717144040) do
 
   create_table "templates", :force => true do |t|
     t.string   "template_name"
-    t.integer  "view_id"
-    t.integer  "view_type"
     t.integer  "node_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "text_elems", :force => true do |t|
+    t.string   "title"
+    t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

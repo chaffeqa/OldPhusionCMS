@@ -2,8 +2,6 @@ class CreateTemplates < ActiveRecord::Migration
   def self.up
     create_table :templates do |t|
       t.string :template_name
-      t.integer :view_id
-      t.integer :view_type
       t.belongs_to :node
 
       t.timestamps

@@ -15,20 +15,27 @@ class NodesController < ApplicationController
   # GET /nodes/1.xml
   def show
     @node = Node.find(params[:id]) if params[:id]
-    @node = Node.find_last_by_shortcut(params[:shortcut]) if params[:shortcut]
+#    @node = Node.where(:shortcut => params[:shortcut]).first if params[:shortcut]
+#    @template = @node.template if @node.template
+#    @view = @node.template.view if @node.template.view
+#    if @view
+#      render :template => "#{@template.view_type.tableize}/show"
+##      redirect_to :controller => "#{@template.view_type.tableize}", :action => "show", :id => @view
+#    else
+      respond_to do |format|
+        format.html # show.html.erb
+        format.xml  { render :xml => @node }
+      end
+#    end
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @node }
-    end
   end
 
   # GET /nodes/new
   # GET /nodes/new.xml
   def new
-    @disabled = ''
+    @disabled = 'false'
     @node = Node.new(:displayed => true)
-    @template = @node.build_template
+    @node.template = Template.new
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @node }
@@ -39,7 +46,7 @@ class NodesController < ApplicationController
   def edit
     @disabled = ''
     @node = Node.find(params[:id])
-    @template = @node.template
+    @node.template = Template.new unless @node.template
     @disabled = 'disabled' if @home_node.id == params[:id]
   end
 
@@ -47,8 +54,7 @@ class NodesController < ApplicationController
   # POST /nodes.xml
   def create
     @node = Node.new(params[:node])
-    @template = @node.build_template(params[:template])
-
+  
     respond_to do |format|
       if @node.save
         format.html { redirect_to(@node, :notice => 'Node was successfully created.') }

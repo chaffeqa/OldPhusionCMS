@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
-  helper_method :get_home_node, :home_node?
+  helper_method :get_home_node
 
   def get_home_node
     unless @home_node

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  view: 
+  position: 1
+  elem: 
+
+two:
+  view: 
+  position: 1
+  elem: 

@@ -18,6 +18,13 @@
   <%= @node.displayed %>
 </p>
 
+<% if @template %>
+  <p>
+    <b>Template Name</b>
+    <%= @template.template_name %>
+  </p>
+<% end %>
+
 
 <%= link_to 'Edit', edit_node_path(@node) %> |
 <%= link_to 'Back', nodes_path %>
