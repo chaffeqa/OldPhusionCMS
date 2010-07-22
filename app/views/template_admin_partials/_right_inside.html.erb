@@ -1,0 +1,20 @@
+<% if @template and @template.template_name == "Right Inside" %>
+  <div class="right-inside-side-column">
+    <h3>Side Column</h3>
+    <%= 'Right Inside Position One Elements Here' %>
+    <% unless @element.position == 1 %>
+      <div class="add-element"><%= link_to 'Add Text Element', new_text_elem_path(:shortcut => @node.shortcut, :position => '1') %></div>
+    <% else %>
+      <div class="element"><%= render "#{@element.elem_type.tableize}/form" %></div>
+    <% end %>
+  </div>
+  <div class="right-inside-content">
+    <h3>Content</h3>
+    <%= 'Right Inside Position Two Elements Here' %>
+    <% unless @element.position == 2 %>
+      <div class="add-element"><%= link_to 'Add Text Element', new_text_elem_path(:shortcut => @node.shortcut, :position => '2') %></div>
+    <% else %>
+      <div class="element"><%= render "#{@element.elem_type.tableize}/form" %></div>
+    <% end %>
+  </div>
+<% end %>

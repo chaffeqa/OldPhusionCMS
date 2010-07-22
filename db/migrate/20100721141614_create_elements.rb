@@ -1,7 +1,7 @@
 class CreateElements < ActiveRecord::Migration
   def self.up
     create_table :elements do |t|
-      t.belongs_to :view
+      t.belongs_to :template
       t.integer :position
       t.references :elem, :polymorphic => true
 

@@ -16,11 +16,26 @@ class ApplicationController < ActionController::Base
     return @home_node
   end
 
+
+  def get_template
+    @node = Node.where(:shortcut => params[:shortcut]).first if params[:shortcut]
+    unless @node
+      flash[:important_notice] = "No Page exists with the name: #{params[:shortcut]}. Please create one."
+      redirect_to new_node_path
+    end
+    unless @node or @node.template 
+      flash[:important_notice] = "This Page does not have legal template, please choose one."
+      redirect_to edit_node_path(@node)
+    end
+    @template = @node.template
+  end
+  
+
   private
 
   def create_home_node
     @home_node = Node.create!(:menu_name => 'Home', :title => 'Home', :shortcut => 'home', :displayed => true)
-#    @home_node.template TODO
+    @home_node.create_template(:template_name => 'Home')
   end
   
 end

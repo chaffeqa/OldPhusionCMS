@@ -1,5 +1,6 @@
 class NodesController < ApplicationController
   before_filter :get_home_node
+  before_filter :home_form?, :only => [:new, :edit, :create, :update]
   # GET /nodes
   # GET /nodes.xml
   def index
@@ -15,25 +16,17 @@ class NodesController < ApplicationController
   # GET /nodes/1.xml
   def show
     @node = Node.find(params[:id]) if params[:id]
-#    @node = Node.where(:shortcut => params[:shortcut]).first if params[:shortcut]
-#    @template = @node.template if @node.template
-#    @view = @node.template.view if @node.template.view
-#    if @view
-#      render :template => "#{@template.view_type.tableize}/show"
-##      redirect_to :controller => "#{@template.view_type.tableize}", :action => "show", :id => @view
-#    else
-      respond_to do |format|
-        format.html # show.html.erb
-        format.xml  { render :xml => @node }
-      end
-#    end
-
+    redirect_to shortcut_path(@node.shortcut)
+  rescue URI::InvalidURIError:
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @node }
+    end
   end
 
   # GET /nodes/new
   # GET /nodes/new.xml
   def new
-    @disabled = 'false'
     @node = Node.new(:displayed => true)
     @node.template = Template.new
     respond_to do |format|
@@ -44,10 +37,8 @@ class NodesController < ApplicationController
 
   # GET /nodes/1/edit
   def edit
-    @disabled = ''
     @node = Node.find(params[:id])
     @node.template = Template.new unless @node.template
-    @disabled = 'disabled' if @home_node.id == params[:id]
   end
 
   # POST /nodes
@@ -92,6 +83,12 @@ class NodesController < ApplicationController
       format.html { redirect_to(nodes_url) }
       format.xml  { head :ok }
     end
+  end
+
+  
+  def home_form?
+    @home_form = 'false'
+    @home_form = 'true' if @home_node.id == params[:id]
   end
 end
 

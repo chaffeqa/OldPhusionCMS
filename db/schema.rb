@@ -12,7 +12,7 @@
 ActiveRecord::Schema.define(:version => 20100721142144) do
 
   create_table "elements", :force => true do |t|
-    t.integer  "view_id"
+    t.integer  "template_id"
     t.integer  "position"
     t.integer  "elem_id"
     t.string   "elem_type"
