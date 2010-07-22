@@ -1,1 +1,14 @@
-<%= "_home.html" %>
+<% if @template and @template.template_name == "Home" %>
+  <div class="home-banner">
+    <h3>Banner</h3>
+    <%= 'Home Position One Elements Here' %>
+  </div>
+  <div class="home-column-1">
+    <h3>Column 1</h3>
+    <%= 'Home Position Two Elements Here' %>
+  </div>
+  <div class="home-column-2">
+    <h3>Column 2</h3>
+    <%= 'Home Position Three Elements Here' %>
+  </div>
+<% end %>

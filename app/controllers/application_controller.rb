@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
 
   def create_home_node
     @home_node = Node.create!(:menu_name => 'Home', :title => 'Home', :shortcut => 'home', :displayed => true)
+#    @home_node.template TODO
   end
   
 end

@@ -1,6 +1,10 @@
-<%#
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
-%>
-
-<%= "_right_inside.html" %>
+<% if @template and @template.template_name == "Right Inside" %>
+  <div class="right-inside-side-column">
+    <h3>Side Column</h3>
+    <%= 'Right Inside Position One Elements Here' %>
+  </div>
+  <div class="right-inside-content">
+    <h3>Content</h3>
+    <%= 'Right Inside Position Two Elements Here' %>
+  </div>
+<% end %>
