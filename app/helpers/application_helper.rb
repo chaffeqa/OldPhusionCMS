@@ -62,8 +62,10 @@ module ApplicationHelper
 
   end
 
-
-
+  def get_elem_link_to_action(element, action)
+    { :controller => element.elem_type.tableize, :action => action, :id => element.elem, :shortcut => @node.shortcut }
+  end
+  
 
   def display_menu_list()
     ret = "<ul><li>"

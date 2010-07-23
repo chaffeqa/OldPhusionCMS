@@ -1,0 +1,11 @@
+<% elements = locals[:elements] %>
+
+<% elements.each do |element|  %>
+  <div class="element">
+    <%= render "#{element.elem_type.tableize}/show", :locals => {:elem => element.elem} %>
+    <p>
+      <%= link_to 'Edit Element', get_elem_link_to_action(element,'edit')  %>
+      <%= link_to 'Destroy Element', get_elem_link_to_action(element,'destroy') , :confirm => "Are you sure?", :method => :delete %>
+    </p>
+  </div>
+<% end %>

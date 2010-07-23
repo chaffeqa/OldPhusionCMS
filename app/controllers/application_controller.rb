@@ -28,6 +28,7 @@ class ApplicationController < ActionController::Base
       redirect_to edit_node_path(@node)
     end
     @template = @node.template
+    @elements = @template.elements
   end
   
 

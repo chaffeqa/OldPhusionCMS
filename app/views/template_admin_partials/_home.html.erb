@@ -3,10 +3,11 @@
   <div class="home-banner">
     <h3>Banner</h3>
     <%= 'Home Position One Elements Here' %>
+    <%= render 'template_admin_partials/position_elements', :locals => {:elements => @elements.elements_for_position(1)} %>
     <% unless @element and @element.position == 1 %>
       <div class="add-element"><%= render 'template_admin_partials/new_element_select', :locals => {:position => '1'} %></div>
     <% else %>
-      <div class="element"><%= render "#{@element.elem_type.tableize}/form" %></div>
+      <div class="element-form"><%= render "#{@element.elem_type.tableize}/form" %></div>
     <% end %>
   </div>
 
@@ -14,9 +15,9 @@
     <h3>Column 1</h3>
     <%= 'Home Position Two Elements Here' %>
     <% unless @element and @element.position == 2 %>
-      <div class="add-element"><%= link_to 'Add Text Element', new_text_elem_path(:shortcut => @node.shortcut, :position => '2') %></div>
+      <div class="add-element"><%= render 'template_admin_partials/new_element_select', :locals => {:position => '2'} %></div>
     <% else %>
-      <div class="element"><%= render "#{@element.elem_type.tableize}/form" %></div>
+      <div class="element-form"><%= render "#{@element.elem_type.tableize}/form" %></div>
     <% end %>
   </div>
 
@@ -24,9 +25,9 @@
     <h3>Column 2</h3>
     <%= 'Home Position Three Elements Here' %>
     <% unless @element and @element.position == 3 %>
-      <div class="add-element"><%= link_to 'Add Text Element', new_text_elem_path(:shortcut => @node.shortcut, :position => '3') %></div>
+      <div class="add-element"><%= render 'template_admin_partials/new_element_select', :locals => {:position => '3'} %></div>
     <% else %>
-      <div class="element"><%= render "#{@element.elem_type.tableize}/form" %></div>
+      <div class="element-form"><%= render "#{@element.elem_type.tableize}/form" %></div>
     <% end %>
   </div>
 <% end %>

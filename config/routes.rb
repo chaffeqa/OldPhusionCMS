@@ -1,4 +1,6 @@
 PhusionCMS::Application.routes.draw do |map|
+  resources :link_elems
+
 
 
   resources :nodes

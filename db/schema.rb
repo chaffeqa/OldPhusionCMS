@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(:version => 20100721142144) do
     t.integer  "position"
     t.integer  "elem_id"
     t.string   "elem_type"
+    t.integer  "column_order"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

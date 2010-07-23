@@ -1,10 +1,10 @@
-class TextElemsController < ApplicationController
+class LinkElemsController < ApplicationController
   before_filter :get_template
 
 
   def new
     @element = Element.new(:position => params[:position], :column_order => Element.set_highest_column_order(params[:position]))
-    @text_elem = @element.elem=TextElem.new
+    @link_elem = @element.elem=LinkElem.new
     respond_to do |format|
       format.html {render_node_template}
     end
@@ -12,8 +12,8 @@ class TextElemsController < ApplicationController
 
 
   def edit
-    @text_elem = TextElem.find(params[:id])
-    @element = @text_elem.element
+    @link_elem = LinkElem.find(params[:id])
+    @element = @link_elem.element
     respond_to do |format|
       format.html {render_node_template}
     end
@@ -22,7 +22,7 @@ class TextElemsController < ApplicationController
 
   def create
     @element = Element.new(:position => params[:position], :column_order => params[:column_order])
-    @text_elem = @element.elem=TextElem.new(params[:text_elem])
+    @link_elem = @element.elem=LinkElem.new(params[:link_elem])
     respond_to do |format|
       if @element.save and @node.template.elements << @element
         format.html { redirect_to admin_shortcut_path(@node.shortcut, :notice => "Element successfully added!") }
@@ -34,10 +34,10 @@ class TextElemsController < ApplicationController
 
 
   def update
-    @text_elem = TextElem.find(params[:id])
-    @element = @text_elem.element
+    @link_elem = LinkElem.find(params[:id])
+    @element = @link_elem.element
     respond_to do |format|
-      if @text_elem.update_attributes(params[:text_elem])
+      if @link_elem.update_attributes(params[:link_elem])
         format.html { redirect_to admin_shortcut_path(@node.shortcut, :notice => "Element successfully updated!") }
       else
         format.html { render_node_template }
@@ -47,8 +47,8 @@ class TextElemsController < ApplicationController
 
 
   def destroy
-    @text_elem = TextElem.find(params[:id])
-    @text_elem.element.destroy
+    @link_elem = LinkElem.find(params[:id])
+    @link_elem.element.destroy
     respond_to do |format|
       format.html { render_node_template }
     end
@@ -66,7 +66,4 @@ class TextElemsController < ApplicationController
       redirect_to :back
     end
   end
-
-
-
 end

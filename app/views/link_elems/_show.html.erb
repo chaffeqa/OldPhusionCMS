@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @link_elem.name %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @link_elem.url %>
+</p>
+
+<p>
+  <b>Target:</b>
+  <%= @link_elem.target %>
+</p>
+
+
+<%= link_to 'Edit', edit_link_elem_path(@link_elem) %> |
+<%= link_to 'Back', link_elems_path %>

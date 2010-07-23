@@ -4,6 +4,7 @@ class CreateElements < ActiveRecord::Migration
       t.belongs_to :template
       t.integer :position
       t.references :elem, :polymorphic => true
+      t.integer :column_order
 
       t.timestamps
     end
