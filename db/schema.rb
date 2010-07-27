@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100721142144) do
+ActiveRecord::Schema.define(:version => 20100723204022) do
 
   create_table "elements", :force => true do |t|
     t.integer  "template_id"
@@ -17,6 +17,14 @@ ActiveRecord::Schema.define(:version => 20100721142144) do
     t.integer  "elem_id"
     t.string   "elem_type"
     t.integer  "column_order"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "link_elems", :force => true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.string   "target"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

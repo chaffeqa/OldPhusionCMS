@@ -1,0 +1,17 @@
+<% position = locals[:position] %>
+
+<div id="elements-<%= position %>">
+  <% @elements.elements_for_position(position).each do |element|  %>
+    <%= render 'elements/element', :locals => {:element => element} %>
+  <% end %>
+</div>
+
+<%= admin_area do %>
+  <div id="new-element-<%= position %>">
+    <% unless @element and @element.position == position %>
+      <%= render 'elements/new_element_select', :locals => {:position => position} %>
+    <% else %>
+      <%= render "#{@element.elem_type.tableize}/form" %>
+    <% end %>
+  </div>
+<% end %>

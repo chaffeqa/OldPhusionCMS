@@ -1,0 +1,5 @@
+<% element = locals[:element] %>
+
+<div class="element" id="element-<%= element.id %>">
+  <%= render "#{element.elem_type.tableize}/show", :locals => {:elem => element.elem} %>
+</div>

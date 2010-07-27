@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
-  helper_method :get_home_node
+  helper_method :get_home_node, :admin?
 
   def get_home_node
     unless @home_node
@@ -28,9 +28,23 @@ class ApplicationController < ActionController::Base
       redirect_to edit_node_path(@node)
     end
     @template = @node.template
-    @elements = @template.elements
+    @elements = @template.elements.elem_order
+  end
+
+  #TODO
+  def admin?
+    true
   end
   
+
+  def render_node_template(error_message="Error")
+    if @node and @template
+      render 'templates/edit'
+    else
+      flash[:important_notice] = error_message.to_s
+      redirect_to :back
+    end
+  end
 
   private
 

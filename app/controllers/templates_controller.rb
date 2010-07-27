@@ -8,15 +8,18 @@ class TemplatesController < ApplicationController
   def edit
   end
 
+  
   def new_element
     if request.post?
-      redirect_to(:controller => params[:elem_controller], :action => 'new', :shortcut => params[:shortcut], :position => params[:position])
+      respond_to do |format|
+        format.html { redirect_to(:controller => params[:elem_controller], :action => 'new', :shortcut => params[:shortcut], :position => params[:position]) }
+        format.js { redirect_to(:controller => params[:elem_controller], :action => 'new', :shortcut => params[:shortcut], :position => params[:position], :format => :js) }
+      end
     else
       flash[:important_notice] = "Error in building a new element."
       redirect_to(:back)
-    end
+    end 
   end
-
   
 
 end

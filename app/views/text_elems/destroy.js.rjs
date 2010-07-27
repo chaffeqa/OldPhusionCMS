@@ -1,0 +1,1 @@
+page["element-#{@element.id}"].visual_effect(:blind_up)
