@@ -1,0 +1,48 @@
+<%= form_for(@blog_elem) do |f| %>
+  <% if @blog_elem.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@blog_elem.errors.count, "error") %> prohibited this blog_elem from being saved:</h2>
+
+      <ul>
+        <% @blog_elem.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %> &nbsp;
+    <%= f.check_box :display_title %>
+    <%= f.label :display_title %>
+  </div>
+  <div class="field">
+    <%= f.label :max_posts, 'Maximum Number of posts displayed per page:' %><br />
+    <%= f.text_field :max_posts %>
+  </div>
+  <div class="field">
+    <%= f.label :max_age, 'How many days into the past do you want to display?' %><br />
+    <%= f.text_field :max_age %>
+  </div>
+  <div class="field">
+    <%= f.label :email_notice, 'If you want email notices of comments, please enter your email address here:' %><br />
+    <%= f.text_field :email_notice %>
+  </div>
+  <div class="field">
+    <%= f.label :commentability, 'Comment Options' %><br />
+    <%= f.select :commentability, BlogElem.commentability_select %>
+  </div>
+  <div class="field">
+    <%= f.label :display_style, 'Blog Display Options' %>
+    <%= f.select :display_style, BlogElem.display_style_select %>
+  </div>
+
+  <%= hidden_field_tag :column_order, @element.column_order %>
+  <%= hidden_field_tag :position, @element.position %>
+  <%= hidden_field_tag :shortcut, @shortcut %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

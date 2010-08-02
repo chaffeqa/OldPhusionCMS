@@ -6,3 +6,5 @@ gem 'sqlite3-ruby', :require => 'sqlite3', :group => [:development, :test]
 
 gem 'mysql', :group => :production
 
+gem 'paperclip'
+

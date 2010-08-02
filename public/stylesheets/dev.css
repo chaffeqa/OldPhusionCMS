@@ -33,7 +33,7 @@ ul.menu li a:hover { background-color: lightgrey; }
 ul.submenu { visibility: hidden; position: absolute;  z-index: 20; }
 ul.submenu li { float: none; display:block; border: 1px solid grey; }
 ul.submenu li a { border: none; padding: 3px 7px; }
-ul.sub-submenu { visibility: hidden; position: relative; max-height: 0px; }
+ul.sub-submenu { visibility: hidden; position: relative; }
 ul.sub-submenu li { float: none; margin-left: 20px; list-style: none; display:block; border: 1px solid grey; }
 ul.sub-submenu li a { border: none; padding: 3px 7px; }
 

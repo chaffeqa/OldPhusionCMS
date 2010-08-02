@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  link_name: MyString
+  link_type: MyString
+  link_url: MyString
+  target: MyString
+  link_list: 
+  link_file_file_name: MyString
+  link_file_content_type: MyString
+  link_file_file_size: 1
+  link_file_updated_at: 2010-07-28 08:45:15
+
+two:
+  link_name: MyString
+  link_type: MyString
+  link_url: MyString
+  target: MyString
+  link_list: 
+  link_file_file_name: MyString
+  link_file_content_type: MyString
+  link_file_file_size: 1
+  link_file_updated_at: 2010-07-28 08:45:15

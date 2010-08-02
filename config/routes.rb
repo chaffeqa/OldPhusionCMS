@@ -1,9 +1,20 @@
-PhusionCMS::Application.routes.draw do |map|
+PhusionCMS::Application.routes.draw do |map| 
 
-  resources :nodes
   root :to => 'nodes#index'
-
-  resources :text_elems, :except => [:index, :show]
+  resources :nodes
+  
+#  scope ':shortcut' do
+    resources :link_list_elems, :except => [:index, :destroy] do
+      resources :links, :except => [:index, :show, :destroy] do
+        post :file, :on => :member
+      end
+    end
+    resources :text_elems, :except => [:index, :destroy]
+    resources :elements, :only => [:destroy] do
+      get :move, :on => :member
+    end
+    resources :blog_elems, :except => [:index, :destroy]
+#  end
 
   # Elements resources
   match ':shortcut/:position/new_element' => 'templates#new_element', :as => :new_element

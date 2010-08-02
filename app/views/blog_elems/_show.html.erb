@@ -1,0 +1,30 @@
+<% blog_elem = locals[:elem] %>
+
+<div class="blog-elem">
+  <h3><%= blog_elem.title if blog_elem.display_title %></h3>
+
+  <p>
+    <b>Max posts:</b>
+    <%= blog_elem.max_posts %>
+  </p>
+
+  <p>
+    <b>Max age:</b>
+    <%= blog_elem.max_age %>
+  </p>
+
+  <p>
+    <b>Email notice:</b>
+    <%= blog_elem.email_notice %>
+  </p>
+
+  <p>
+    <b>Display style:</b>
+    <%= blog_elem.display_style %>
+  </p>
+
+  <p>
+    <b>Commentability:</b>
+    <%= blog_elem.commentability %>
+  </p>
+</div>

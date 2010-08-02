@@ -26,4 +26,8 @@ class Template < ActiveRecord::Base
     self.error.add(:template_name, "This template does not seem to exist, please choose another one.")
     return nil
   end
+
+  def underscore_template_name
+    template_name.gsub(/ /, '_').underscore
+  end
 end

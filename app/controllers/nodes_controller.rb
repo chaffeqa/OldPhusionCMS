@@ -87,8 +87,8 @@ class NodesController < ApplicationController
 
   
   def home_form?
-    @home_form = 'false'
-    @home_form = 'true' if @home_node.id == params[:id]
+    @home_form = false
+    @home_form = true if params[:id] and @home_node.id == params[:id]
   end
 end
 

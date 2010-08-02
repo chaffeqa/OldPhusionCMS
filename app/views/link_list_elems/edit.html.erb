@@ -1,0 +1,4 @@
+<% form_for(@link_list_elem) do |f| %>
+  <%= render 'form', :locals => {:form => f} %>
+<% end %>
+<%= link_to 'Cancel', link_list_elem_path(@link_list_elem) %>

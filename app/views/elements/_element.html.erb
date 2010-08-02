@@ -2,4 +2,8 @@
 
 <div class="element" id="element-<%= element.id %>">
   <%= render "#{element.elem_type.tableize}/show", :locals => {:elem => element.elem} %>
+  <%= admin_area do %>
+    <%= link_to 'Edit Element', get_elem_link_to_action(element, 'edit') %>
+    <%= link_to 'Destroy Element', element_path(element, :shortcut => @node.shortcut) , :confirm => "Are you sure?", :method => :delete %>
+  <% end %>
 </div>

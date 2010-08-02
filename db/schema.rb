@@ -9,7 +9,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100723204022) do
+ActiveRecord::Schema.define(:version => 20100802124156) do
+
+  create_table "blog_elems", :force => true do |t|
+    t.string   "title"
+    t.boolean  "display_title"
+    t.integer  "max_posts"
+    t.integer  "max_age"
+    t.string   "email_notice"
+    t.string   "display_style"
+    t.string   "commentability"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "elements", :force => true do |t|
     t.integer  "template_id"
@@ -25,6 +37,27 @@ ActiveRecord::Schema.define(:version => 20100723204022) do
     t.string   "name"
     t.string   "url"
     t.string   "target"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "link_list_elems", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "links", :force => true do |t|
+    t.string   "link_name"
+    t.string   "link_type"
+    t.string   "link_url"
+    t.integer  "node_id"
+    t.string   "target"
+    t.integer  "link_list_elem_id"
+    t.string   "link_file_file_name"
+    t.string   "link_file_content_type"
+    t.integer  "link_file_file_size"
+    t.datetime "link_file_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

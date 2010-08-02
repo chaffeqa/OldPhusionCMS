@@ -1,9 +1,0 @@
-new_element = page["new-element-#{@element.position}"]
-unless @text_elem.errors.any?
-  new_element.toggle
-  new_element.replace_html render('elements/new_element_select', :locals => { :position => @element.position })
-  new_element.visual_effect(:blind_down)
-  page.insert_html(:top, "elements-#{@element.position}", render('elements/element', :locals => {:element => @element}))
-else
-  new_element.replace_html render('text_elems/form')
-end

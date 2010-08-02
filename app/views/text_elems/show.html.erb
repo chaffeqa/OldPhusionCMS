@@ -1,0 +1,6 @@
+<%= render 'show', :locals => {:elem => @text_elem} %>
+
+<p>
+  |<%= link_to 'Edit', edit_text_elem_path(@text_elem) %>|
+  <%= link_to 'Done', shortcut_path(@shortcut) %>|
+</p>

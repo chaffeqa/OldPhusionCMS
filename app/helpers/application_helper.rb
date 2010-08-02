@@ -2,7 +2,7 @@ module ApplicationHelper
 
   # Anything passed into an <%= admin_area do %> ... <% end %> block in an .erb file will get surrounded by <div class="admin"></div>
   def admin_area(&block)
-    content_tag(:div, :class => "admin", &block) if admin?
+    content_tag(:span, :class => "admin", &block) if admin?
   end
 
 

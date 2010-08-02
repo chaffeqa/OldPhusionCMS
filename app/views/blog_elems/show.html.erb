@@ -1,0 +1,6 @@
+<%= render 'show', :locals => {:elem => @blog_elem} %>
+
+<%= admin_area do %>
+  | <%= link_to 'Blog Options', edit_blog_elem_path(@blog_elem) %> |
+  <%= link_to 'Done', shortcut_path(@shortcut) %> |
+<% end %>

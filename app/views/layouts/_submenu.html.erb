@@ -1,11 +1,11 @@
 <% if locals[:node] %>
   <% locals[:node].nodes.each do |node| %>
-    <li onmouseover='document.getElementById("<%= node.menu_name %>").style.visibility="visible";' onmouseout='document.getElementById("<%= node.menu_name %>").style.visibility="hidden";'>
+    <li>
       <%= link_to node.menu_name, shortcut_path(node.shortcut) %>
     </li>
     <% unless node.nodes.empty? %>
       <ul class="sub-submenu" id="<%= node.menu_name %>">
-        <%= render 'layouts/menu', :locals => {:node => node} %>
+        <%= render 'layouts/submenu', :locals => {:node => node} %>
       </ul>
     <% end %>
   <% end %>

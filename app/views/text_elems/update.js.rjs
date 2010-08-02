@@ -1,8 +1,0 @@
-element = page["element-#{@element.id}"]
-unless @text_elem.errors
-  element.toggle
-  element.replace_html render('text_elems/show', :locals => {:elem => @text_elem})
-  element.visual_effect :blind_down
-else
-  element.replace_html render('text_elems/form')
-end

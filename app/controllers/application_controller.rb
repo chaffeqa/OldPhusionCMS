@@ -18,17 +18,22 @@ class ApplicationController < ActionController::Base
 
 
   def get_template
+    get_home_node
     @node = Node.where(:shortcut => params[:shortcut]).first if params[:shortcut]
-    unless @node
-      flash[:important_notice] = "No Page exists with the name: #{params[:shortcut]}. Please create one."
+    if @node
+      if @node.template
+        @template = @node.template
+        @elements = @template.elements.elem_order
+        @shortcut = @node.shortcut
+      else
+        flash[:important_notice] = "This Page does not have legal template, please choose one."
+        redirect_to edit_node_path(@node)
+      end
+    else
+      flash[:important_notice] = "No Page exists with this name. Please create one."
       redirect_to new_node_path
     end
-    unless @node or @node.template 
-      flash[:important_notice] = "This Page does not have legal template, please choose one."
-      redirect_to edit_node_path(@node)
-    end
-    @template = @node.template
-    @elements = @template.elements.elem_order
+    
   end
 
   #TODO
@@ -39,10 +44,9 @@ class ApplicationController < ActionController::Base
 
   def render_node_template(error_message="Error")
     if @node and @template
-      render 'templates/edit'
-    else
-      flash[:important_notice] = error_message.to_s
-      redirect_to :back
+      render 'templates/edit', :important_notice => error_message
+    else 
+      redirect_to root_url(), :important_notic => error_message.to_s
     end
   end
 

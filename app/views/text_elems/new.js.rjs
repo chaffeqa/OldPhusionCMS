@@ -1,4 +1,0 @@
-element = page["new-element-#{@element.position}"]
-element.toggle
-element.replace_html render('text_elems/form')
-element.visual_effect(:blind_down)

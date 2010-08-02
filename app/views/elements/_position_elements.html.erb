@@ -8,10 +8,10 @@
 
 <%= admin_area do %>
   <div id="new-element-<%= position %>">
-    <% unless @element and @element.position == position %>
+    <%# unless @element and @element.position == position %>
       <%= render 'elements/new_element_select', :locals => {:position => position} %>
-    <% else %>
-      <%= render "#{@element.elem_type.tableize}/form" %>
-    <% end %>
+    <%# else %>
+      <%#= render "#{@element.elem_type.tableize}/form" %>
+    <%# end %>
   </div>
 <% end %>

@@ -4,7 +4,4 @@
   <h4><%= elem.title %></h4>
   <p><%= elem.text %></p>  
 </div>
-<%= admin_area do %>
-  <%= link_to 'Edit Element', edit_text_elem_path(:id => elem, :shortcut => @node.shortcut), :remote => true %>
-  <%= link_to 'Destroy Element', text_elem_path(:id => elem, :shortcut => @node.shortcut) , :confirm => "Are you sure?", :method => :delete, :remote => true %>
-<% end %> 
+

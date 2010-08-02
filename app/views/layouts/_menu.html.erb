@@ -1,6 +1,6 @@
 <% if locals[:node] %>
   <% locals[:node].nodes.each do |node| %>
-    <li onmouseover='show_menu("<%= node.menu_name %>")' onmouseout='hide_menu("<%= node.menu_name %>")' >
+    <li onmouseover='show_menu("#<%= node.menu_name %>")' onmouseout='hide_menu("#<%= node.menu_name %>")' >
       <%= link_to node.menu_name, shortcut_path(node.shortcut) %>
       <% unless node.nodes.empty? %>
         <ul class="submenu" id="<%= node.menu_name %>">
