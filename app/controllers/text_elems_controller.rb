@@ -37,13 +37,6 @@ class TextElemsController < ApplicationController
   end
 
 
-  def destroy
-    @element = @text_elem.element
-    @element.destroy
-    render_node_template
-  end
-
-
 
   private
   def get_template

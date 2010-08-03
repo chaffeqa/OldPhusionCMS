@@ -1,0 +1,11 @@
+<% photo = locals[:photo] %>
+
+<div class="thumbnail">
+  <%= image_tag photo.image.url(:thumb), :alt => photo.image_file_name, :title => photo.caption %>
+
+  <% admin_area do %>
+    | <%= link_to 'Edit', edit_photo_gallery_elem_photo_path( photo.photo_gallery_elem, photo ) %> | &nbsp;
+    <%= link_to 'Destroy', photo_gallery_elem_photo_path( photo.photo_gallery_elem, photo ), :confirm => 'Are your sure?', :method => :delete %> |
+  <% end %>
+
+</div>

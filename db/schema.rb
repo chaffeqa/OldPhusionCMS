@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100802124156) do
+ActiveRecord::Schema.define(:version => 20100802150054) do
 
   create_table "blog_elems", :force => true do |t|
     t.string   "title"
@@ -29,14 +29,6 @@ ActiveRecord::Schema.define(:version => 20100802124156) do
     t.integer  "elem_id"
     t.string   "elem_type"
     t.integer  "column_order"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "link_elems", :force => true do |t|
-    t.string   "name"
-    t.string   "url"
-    t.string   "target"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -68,6 +60,27 @@ ActiveRecord::Schema.define(:version => 20100802124156) do
     t.string   "shortcut"
     t.integer  "node_id"
     t.boolean  "displayed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "photo_gallery_elems", :force => true do |t|
+    t.string   "title"
+    t.boolean  "display_title"
+    t.string   "display_style"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "photos", :force => true do |t|
+    t.integer  "photo_gallery_elem_id"
+    t.string   "caption"
+    t.text     "description"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.string   "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "order_number"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

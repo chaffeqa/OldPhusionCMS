@@ -37,13 +37,6 @@ class BlogElemsController < ApplicationController
   end
 
 
-  def destroy
-    @element = @blog_elem.element
-    @element.destroy
-    render_node_template
-  end
-
-
 
   private
   def get_template

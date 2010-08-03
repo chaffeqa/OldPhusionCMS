@@ -1,0 +1,11 @@
+<% photo_gallery_elem = locals[:elem] %>
+
+<div class="photo-gallery-elem">
+  <h3><%= photo_gallery_elem.title if photo_gallery_elem.display_title %></h3>
+
+  <% photo_gallery_elem.photos.each do |photo| %>
+    <%= render 'photos/photo', :locals => {:photo => photo} %>
+  <% end %>
+ 
+</div>
+

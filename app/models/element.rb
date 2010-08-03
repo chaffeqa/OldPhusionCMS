@@ -3,16 +3,15 @@ class Element < ActiveRecord::Base
   belongs_to :elem, :polymorphic => true
 
   ELEM_TYPES = [
-    ["Text"         ,   "text_elems"      ],
-    ["Blog"         ,   "blog_elems"      ],
-    ["Donation"     ,   "donation_elems"  ],
-    ["Calendar"     ,   "text_elems"      ],
-    ["Form"         ,   "blog_elems"      ],
-    ["File"         ,   "file_elems"      ],
-    ["Link List"    ,   "link_list_elems" ],
-    ["Evite"        ,   "evite_elems"     ],
-    ["Login"        ,   "login_elems"     ],
-    ["Photo Galary" ,   "photo_elems"     ]
+    ["Text"           ,   "text_elems"          ],
+    ["Blog"           ,   "blog_elems"          ],
+    ["Donation"       ,   "donation_elems"      ],
+    ["Calendar"       ,   "text_elems"          ],
+    ["Form"           ,   "blog_elems"          ],
+    ["Link List"      ,   "link_list_elems"     ],
+    ["Evite"          ,   "evite_elems"         ],
+    ["Login"          ,   "login_elems"         ],
+    ["Photo Gallery"  ,   "photo_gallery_elems" ]
   ]
 
   # Scopes
