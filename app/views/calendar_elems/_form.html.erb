@@ -20,6 +20,14 @@
     <%= f.label :display_style %><br />
     <%= f.select :display_style, CalendarElem.display_style_select %>
   </div>
+  <div class="field">
+    <%= f.label :event_color %><br />
+    <%= f.select :event_color, color_select %>
+  </div>
+  <div class="field">
+    <%= f.label :background_color %><br />
+    <%= f.select :background_color, color_select %>
+  </div>
 
 
   <%= hidden_field_tag :column_order, @element.column_order %>

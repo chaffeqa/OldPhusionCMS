@@ -7,6 +7,8 @@ class CreateCalendarElems < ActiveRecord::Migration
       t.integer :max_events_shown
       t.integer :max_days_in_past
       t.integer :max_days_in_future
+      t.string :event_color
+      t.string :background_color
 
       t.timestamps
     end

@@ -122,4 +122,16 @@ module ApplicationHelper
   end
 
 
+  def color_select
+    [
+      'Red',
+      'Blue',
+      'Green',
+      'Yellow',
+      'Purple',
+      'Orange'
+    ]
+  end
+
+
 end

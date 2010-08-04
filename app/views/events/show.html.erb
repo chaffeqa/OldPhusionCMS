@@ -1,0 +1,9 @@
+<%= render 'event', :locals => {:event => @event} %>
+
+<%= admin_area do %>
+  <p>
+    | <%= link_to 'Back to Calendar', calendar_elem_path(@calendar_elem) %> |
+    <%= link_to 'Edit Event', edit_calendar_elem_event_path(@calendar_elem, @event) %> |
+    <%= link_to 'Destroy Event', calendar_elem_event_path(@calendar_elem, @event), :confirm => 'Are you sure?', :method => :delete %> |
+  </p>
+<% end %>

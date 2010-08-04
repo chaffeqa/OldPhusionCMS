@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  start_at: 2010-08-04 10:52:39
+  end_at: 2010-08-04 10:52:39
+  all_day: false
+  color: MyString
+  calendar_elem: 
+
+two:
+  name: MyString
+  start_at: 2010-08-04 10:52:39
+  end_at: 2010-08-04 10:52:39
+  all_day: false
+  color: MyString
+  calendar_elem: 

@@ -1,4 +1,6 @@
 PhusionCMS::Application.routes.draw do |map|
+  resources :events
+
   
 
   
@@ -19,7 +21,10 @@ PhusionCMS::Application.routes.draw do |map|
   resources :photo_gallery_elems, :except => [:index, :destroy] do
     resources :photos, :except => [:index, :show]
   end
-  match '/calendar_elems(/:year(/:month))' => 'calendar_elems#index', :as => :calendar_elems, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
+  resources :calendar_elems, :except => [:index, :destroy] do
+    resources :events, :except => [:index]
+  end
+#  match '/calendar_elems/:id(/:year(/:month))' => 'calendar_elems#show', :as => :calendar_elems, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
   #  end
 
   # Elements resources

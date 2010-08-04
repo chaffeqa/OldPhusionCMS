@@ -21,7 +21,7 @@ class CalendarElemsController < ApplicationController
     @element = Element.new(:position => params[:position], :column_order => params[:column_order])
     @calendar_elem = @element.elem = CalendarElem.new(params[:calendar_elem])
     if @calendar_elem.save and @element.save and @node.template.elements << @element
-      redirect_to calendar_elem_path(@calendar_elem)
+      redirect_to calendar_elem_path(@calendar_elem, :notice => "Calendar Element successfully created.")
     else
       render :action => 'new'
     end
@@ -30,7 +30,7 @@ class CalendarElemsController < ApplicationController
   def update
     @element = @calendar_elem.element
     if @calendar_elem.update_attributes(params[:calendar_elem])
-      redirect_to @calendar_elem, :notice => "Link List Element successfully updated."
+      redirect_to @calendar_elem, :notice => "Calendar Element successfully updated."
     else
       render :action => 'edit'
     end

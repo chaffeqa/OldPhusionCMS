@@ -1,5 +1,6 @@
 <% calendar_elem = locals[:elem] %>
 
-
-<h1><%= calendar_elem.title if calendar_elem.display_title %></h1>
-<%= raw(event_calendar) %>
+<div class="calendar-elem">
+  <h3><%= calendar_elem.title if calendar_elem.display_title %></h3>
+  <%=raw event_calendar(calendar_elem) %>
+</div>

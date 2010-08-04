@@ -6,7 +6,8 @@ class CreateEvents < ActiveRecord::Migration
       t.datetime :end_at
       t.boolean :all_day, :default => false
       t.string :color
-      
+      t.belongs_to :calendar_elem
+
       t.timestamps
     end
   end

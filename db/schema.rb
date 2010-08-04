@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100803134923) do
+ActiveRecord::Schema.define(:version => 20100804145223) do
 
   create_table "blog_elems", :force => true do |t|
     t.string   "title"
@@ -19,6 +19,19 @@ ActiveRecord::Schema.define(:version => 20100803134923) do
     t.string   "email_notice"
     t.string   "display_style"
     t.string   "commentability"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "calendar_elems", :force => true do |t|
+    t.string   "title"
+    t.boolean  "display_title"
+    t.string   "display_style"
+    t.integer  "max_events_shown"
+    t.integer  "max_days_in_past"
+    t.integer  "max_days_in_future"
+    t.string   "event_color"
+    t.string   "background_color"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -37,8 +50,9 @@ ActiveRecord::Schema.define(:version => 20100803134923) do
     t.string   "name"
     t.datetime "start_at"
     t.datetime "end_at"
-    t.boolean  "all_day",    :default => false
+    t.boolean  "all_day",          :default => false
     t.string   "color"
+    t.integer  "calendar_elem_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
