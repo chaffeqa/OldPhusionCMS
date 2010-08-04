@@ -6,7 +6,7 @@ class Element < ActiveRecord::Base
     ["Text"           ,   "text_elems"          ],
     ["Blog"           ,   "blog_elems"          ],
     ["Donation"       ,   "donation_elems"      ],
-    ["Calendar"       ,   "text_elems"          ],
+    ["Calendar"       ,   "calendar_elems"      ],
     ["Form"           ,   "blog_elems"          ],
     ["Link List"      ,   "link_list_elems"     ],
     ["Evite"          ,   "evite_elems"         ],

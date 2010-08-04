@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100802150054) do
+ActiveRecord::Schema.define(:version => 20100803134923) do
 
   create_table "blog_elems", :force => true do |t|
     t.string   "title"
@@ -29,6 +29,16 @@ ActiveRecord::Schema.define(:version => 20100802150054) do
     t.integer  "elem_id"
     t.string   "elem_type"
     t.integer  "column_order"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "events", :force => true do |t|
+    t.string   "name"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.boolean  "all_day",    :default => false
+    t.string   "color"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

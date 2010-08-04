@@ -1,0 +1,11 @@
+<h1>Calendar Element</h1>
+
+<%= render 'show', :locals => {:elem => @calendar_elem} %>
+
+
+<%= admin_area do %>
+  <p>
+    | <%= link_to 'Calendar Options', edit_calendar_elem_path(@calendar_elem) %> |
+    <%= link_to 'Done', shortcut_path(@shortcut) %> |
+  </p>
+<% end %>

@@ -1,0 +1,32 @@
+<%= form_for(@calendar_elem)  do |f| %>
+  <% if @calendar_elem.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize((@calendar_elem.errors.count ), "error") %> prohibited this element from being saved:</h2>
+      <ul>
+        <% @calendar_elem.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %> &nbsp;
+    <%= f.check_box :display_title %>
+    <%= f.label :display_title %>
+  </div>
+  <div class="field">
+    <%= f.label :display_style %><br />
+    <%= f.select :display_style, CalendarElem.display_style_select %>
+  </div>
+
+
+  <%= hidden_field_tag :column_order, @element.column_order %>
+  <%= hidden_field_tag :position, @element.position %>
+  <%= hidden_field_tag :shortcut, @shortcut %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

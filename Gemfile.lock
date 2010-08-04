@@ -74,7 +74,7 @@ specs:
     version: 3.0.0.beta4
 - sqlite3-ruby: 
     version: 1.3.1
-hash: 7d80e73c6cf6445c7be3fd27a461c841e9dbb155
+hash: 88387e941bedde6b274210e96d9266ffc0092ad7
 sources: 
 - Rubygems: 
     uri: http://rubygems.org

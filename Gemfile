@@ -8,3 +8,4 @@ gem 'mysql', :group => :production
 
 gem 'paperclip'
 
+# rails plugin install git://github.com/elevation/event_calendar.git
